@@ -14,6 +14,23 @@ export default class Login extends React.Component  {
     fontsLoaded: false,
   };
 
+  getSongs(){
+    fetch('https://us-central1-aiot-fit-xlab.cloudfunctions.net/autoplaygeneral', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({"action": "login", "email":"e@mail.com", "password" : "somepasswordhere"})
+})
+    .then((response) => response.json())
+    .then((responseJson) => {
+console.log(responseJson.reviews);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+  }
+
   async _loadFontsAsync() {
     await Font.loadAsync(customFonts);
     this.setState({ fontsLoaded: true });
