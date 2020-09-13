@@ -1,0 +1,6 @@
+0 pause
+1 Play
+2 volume up
+3 Change genre
+4 volume down
+5 Generate
